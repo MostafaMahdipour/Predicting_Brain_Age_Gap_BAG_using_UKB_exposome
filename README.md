@@ -17,7 +17,7 @@ Open two terminals, one on your laptop and one in Juseless. Type the commands be
 
 create env:
 ```bash
-conda create -n BrainAge python=3.9
+conda create -n BrainAge python=3.11.3
 ```
 activating the environment:
 ```bash
