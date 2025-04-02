@@ -94,11 +94,11 @@ else:
 #%% 5 loading Data
 '''
 As mentioned in the README file, we have 5 different granularitys:
-- Schaefer_17Network_200_UKB + Tian
-- Schaefer_17Network_400_UKB + Tian
-- Schaefer_17Network_600_UKB + Tian
-- Schaefer_17Network_800_UKB + Tian
-- Schaefer_17Network_1000_UKB + Tian
+- Schaefer_17Network_200_UKB + Tian S2
+- Schaefer_17Network_400_UKB + Tian S4
+- Schaefer_17Network_600_UKB + Tian S4
+- Schaefer_17Network_800_UKB + Tian S4
+- Schaefer_17Network_1000_UKB + Tian S4
 
 Therefore, we have first check the files in the directory and then load the them.
 '''
