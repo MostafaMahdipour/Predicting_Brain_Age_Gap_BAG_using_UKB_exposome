@@ -152,9 +152,9 @@ Alternatively, you can open Spyder IDE or Visual Studio Code (CSV) and change th
 ### Directory Structure
 As mentioned before, here are two main subdirectories here.
 
-1. `BrianAgePrediction`: Code and explaination for Brain Age Prediction
+1. `1_BrianAgePrediction`: Code and explaination for Brain Age Prediction
 
-2. `BAG_Prediction` : Code and explaination for Brain Age Prediction
+2. `2_BAG_Prediction` : Code and explaination for Brain Age Prediction
 
 
 
