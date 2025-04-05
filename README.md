@@ -1,10 +1,25 @@
+---
 # **What Predicts Individual Brain Health?**
+## Background
+Brian Age Gap (BAG) is defined as the difference between an individual's chronological age and the age predicted by a machine learning (ML) algorithm based on individual brain features derived from neuroimaging data. It has been shown that the BAG is in relation to various environmental and lifestyle factors collectively such as medical and biomedical variables, diet and nutrition, social factors, substance use, etc [[1-2]](##References). Among all individual variations, BAG can serve as a general indicator of an individual’s brain health playing a crucial role in the understanding of cognitive aging, the early detection of neurodegenerative conditions, and the evaluation of potential interventions [[3-5]](##References). 
 
-In this project, we aimed first to predict brain age using T1-weighted MRI scans. We leveraged the richness of a well-known large cohort of (cognitively) healthy participants in the UK [Biobank](https://www.ukbiobank.ac.uk/) to develop machine learning (ML) models that predict brain age from structural MRI data (known as imaging variables), and then tested these models on the rest of the UK Biobank population.
+It is therefore essential to enhance the brain structure's health in order to improve the quality of life and well-being of individuals; moreover, as many societies face the challenge of a large portion of the aging population and the increasing pressure on the healthcare systems preventing this, promoting brain health can help them to alleviate some of this burden. 
+
+Therefore, we aim to i) predict the age of the brain ii) calculate the BAG, and iii) finally address this question by using a wide range of biomedical, lifestyle, and sociodemographic variables (known as exposomes) conjointly to predict the BAG in a large population.
+
+
+## Workflow
+
+In this project, we aimed first to predict brain age using T1-weighted MRI scans. We leveraged the richness of a well-known large cohort of (cognitively) healthy participants in the [UK Biobank](https://www.ukbiobank.ac.uk/) to develop machine learning (ML) models that predict brain age from structural MRI data (known as imaging variables) on a super healthy group and then tested these models on the rest of the UK Biobank population.
 
 Next, we calculated the gap between predicted brain age and chronological age — known as the **Brain Age Gap (BAG)**. BAG is thought to serve as an important biomarker reflecting pathological processes in the brain.
 
-Subsequently, after calculating BAG, we aimed to characterize it in relation to a range of demographic, biomedical, lifestyle, and other variables (i.e., exposomes). We again utilized state-of-the-art ML models to characterize BAG using the aforementioned exposomes.
+Subsequently, after calculating BAG, we aimed to characterize it in relation to a range of demographic, biomedical, lifestyle, and other variables (i.e., exposomes). We again, utilized state-of-the-art ML models to characterize BAG using the aforementioned exposomes. In this stage, the calculated BAG from the previous stage would be the target and exposomes are our feature inputs.
+
+Finally, utilizing explainable AI with Shapley values [[6]](##References), by assigning importance to each variable contributing to a prediction, we tried to find the most important exposomes on predicting the BAG.
+
+![Overview of the project](assets/Overview.png)
+
 
 ---
 
@@ -17,147 +32,40 @@ This project consists of two main steps:
 
 Each of these steps has a separate sub-directory with a small `README.md` file describing its content.
 
+```
+📁 Mian
+├── 📁 1_BrainAgePrediction
+└── 📁 2_BAGCharacterization
+
+```
+As mentioned, there are two main subdirectories here.
+
+1. `1_BrianAgePrediction`: Code and explanation for Brain Age Prediction
+
+2. `2_BAGCharacterization`: Code and explanation for Brain Age Gap (BAG) Characterization (Prediction)
 ---
 
 
 ## ⚙️ Prerequisites
 
 Below, we describe the prerequisites for running the code.
-The frist step is to create a conda environment so we can 
-### Installation
 
-**Recomendation**: Making a virtual environment
-
-Go to https://docs.conda.io
-
-Install Miniconda (command line installer)
-
-Open a terminal and type the commands below:
-
-create [env](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html):
-```bash
-conda create -n BrainAge python=3.11.3
-```
-activating the environment:
-```bash
-conda activate BrainAge
-```
-install ipython to the newly created environment
-```bash
-conda install ipython
-```
-install datalad
-```bash
-conda install -c conda-forge datalad
-```
-install Julearn. For Julearn do one of these three options (for more information check thier [webpage](https://juaml.github.io/julearn/main/index.html)): 
-```bash
-pip install -U julearn
-pip install -U julearn [viz]
-conda install -c conda-forge julearn
-``` 
-install Seaborn
-```bash
-conda install -c conda-forge seaborn
-```
-install scikit-learn
-```bash
-conda install -c conda-forge scikit-learn
-```
-install optuna
-```bash
-conda install -c conda-forge optuna
-```
-install SHAP. This package is for visualazing and inteperting the results of predictions. More informationon their [webpage](https://shap.readthedocs.io/en/latest/index.html)
-```bash
-conda install -c conda-forge shap
-```
-
-install pickle.
-
-To install this package run one of the following:
-```bash
-conda install conda-forge::pickle5
-conda install conda-forge/label/cf201901::pickle5
-conda install conda-forge/label/cf202003::pickle5
-conda install conda-forge/label/gcc7::pickle5
-```
-
+- We strongly recommend using **virtual environments** and installing needed packages into a virtual environment. This helps to keep the setup clean.      
+      - For exmaple [conda environments](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) are very usefull.
+- Packages need to be installed:
+      - [**Scikit-learn**](https://scikit-learn.org/stable/) to train the models.
+      - [**Julearn**](https://juaml.github.io/julearn/main/index.html) to run complicated cross-validation desings on top of [Scikit-learn](https://scikit-learn.org/stable/) in easier way.
+      - [**Optuna**](https://optuna.org/) to use it as a search method in hyperparameter tuning.
+      - [**Pickle**](https://docs.python.org/3/library/pickle.html#data-stream-format) to save the trained models.
+      - [**SHAP**](https://shap.readthedocs.io/en/latest/index.html) to interpert the predictions.
 ---
-* ***Other recomandations:***
-
-Install git-anext
-```bash
-conda install -c conda-forge git-annex
-```
-Install pickle.
-
-To install this package run one of the following:
-```bash
-conda install conda-forge::pickle5
-conda install conda-forge/label/cf201901::pickle5
-conda install conda-forge/label/cf202003::pickle5
-conda install conda-forge/label/gcc7::pickle5
-```
-install ipykernel (for working in VScode)
-```bash
-conda install ipykernel
-```
-install missingno
-```bash
-conda install -c conda-forge missingno
-```
-install pingouin
-```bash
-conda install -c conda-forge pingouin
-```
-
-install nilearn
-```bash
-conda install -c conda-forge nilearn
-```
-install nibabel
-```bash
-conda install conda-forge::nibabel
-```
-install click
-```bash
-conda install -c anaconda click
-```
-install wget (use one of the commands below)
-```bash
-conda install -c anaconda wget
-pip install wget
-```
-install natsort
-```bash
-conda install anaconda::natsort
-```
-install jupyter
-```bash
-conda install jupyter
-```
-install panel
-```bash
-conda install panel
-```
-install pyviz_comms
-```bash
-conda install pyviz_comms
-```
-Then you can install Spyder for the virtual environment to run the code.
-Alternatively, you can open Spyder IDE or Visual Studio Code (CSV) and change their virtual environment from `base` to the `BrainAge` and easily work with code.
-
-
-### Directory Structure
-As mentioned before, here are two main subdirectories here.
-
-1. `1_BrianAgePrediction`: Code and explaination for Brain Age Prediction
-
-2. `2_BAG_Prediction` : Code and explaination for Brain Age Prediction
+## References
+1.    [Cole, J.H., *Multimodality neuroimaging brain-age in UK biobank: relationship to biomedical, lifestyle, and cognitive factors.* Neurobiology of aging, 2020. 92: p. 34-42.](https://www.sciencedirect.com/science/article/pii/S0197458020301056)
+2.    [Tian, Y.E., et al., *Heterogeneous aging across multiple organ systems and prediction of chronic disease and mortality.* Nature Medicine, 2023. 29(5): p. 1221-1231.](https://www.nature.com/articles/s41591-023-02296-6)
+3.    [Jónsson, B.A., et al., *Brain age prediction using deep learning uncovers associated sequence variants.* Nature communications, 2019. 10(1): p. 1-10.](https://www.nature.com/articles/s41467-019-13163-9)
+4.	[Franke, K. and C. Gaser, *Ten years of BrainAGE as a neuroimaging biomarker of brain aging: what insights have we gained?* Frontiers in neurology, 2019. 10: p. 789.](https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2019.00789/full)
+5.	[More, S., et al., *Brain-age prediction: a systematic comparison of machine learning workflows.* NeuroImage, 2023: p. 119947.](https://www.sciencedirect.com/science/article/pii/S1053811923000940)
+6.    [Molnar, C. (2023). *Interpreting Machine Learning Models with SAP: A Guide with Python Examples and Theory on Shapley Values.* Chistoph Molnar c/o MUCBOOK, Heidi Seibold.](https://christophmolnar.com/books/shap)
 
 
 
-## Authors
-
-- [@Mostafa Madipour](https://github.com/MostafaMahdipour)
