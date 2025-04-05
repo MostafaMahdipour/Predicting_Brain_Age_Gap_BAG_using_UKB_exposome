@@ -1,5 +1,5 @@
 ---
-# ** 🧠 What Predicts Individual Brain Health?**
+# **🧠 What Predicts Individual Brain Health?**
 ## 📖 Background
 Brian Age Gap (BAG) is defined as the difference between an individual's chronological age and the age predicted by a machine learning (ML) algorithm based on individual brain features derived from neuroimaging data. It has been shown that the BAG is in relation to various environmental and lifestyle factors collectively such as medical and biomedical variables, diet and nutrition, social factors, substance use, etc [[1-2]](##References). Among all individual variations, BAG can serve as a general indicator of an individual’s brain health playing a crucial role in the understanding of cognitive aging, the early detection of neurodegenerative conditions, and the evaluation of potential interventions [[3-5]](##References). 
 
