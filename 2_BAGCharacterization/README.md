@@ -45,7 +45,7 @@ To select non-imaging variables from the UK Biobank, we followed this multi-step
    - `subgroup3.csv` → known as *Main Subset* in the paper.  
      (richer exposomes, but smaller sample size due to missingness)
 
-![Overview of Subgroups](../assets/2_BAGCharacterization/BAG_GitHub1.png)
+![Overview of Subgroups](../assets/2_BAGCharacterization/BAG_GitHub2.png)
 
 ## Structure
 
