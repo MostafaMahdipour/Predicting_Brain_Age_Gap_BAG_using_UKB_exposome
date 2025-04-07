@@ -3,7 +3,7 @@
 In this directory, we have codes for doing Brain Age Prediction. Here, we have one `*.py` file for merging and filtering needed information, one main `*.py` code for brain age prediction, and one visualization code file.
 
 ## **Data**
-As mentioned, we used [UK Biobank](https://www.ukbiobank.ac.uk/) cohort under Application ID: 41655 in our project. This cohort contains Neuroimaging scans (bulk data), Imaging derived phenotypes (IDPs), and Non-imaging derived phenotypes (non-IDPs). 
+As mentioned, we used [UK Biobank](https://www.ukbiobank.ac.uk/) cohort under [Application ID: 41655](https://www.ukbiobank.ac.uk/enable-your-research/approved-research/characterizing-brain-networks-and-their-inter-individual-variability-by-high-throughput-imaging-and-computational-modelling) in our project. This cohort contains Neuroimaging scans (bulk data), Imaging derived phenotypes (IDPs), and Non-imaging derived phenotypes (non-IDPs). 
 
 In this step, we used:
 - ***T1-weighted MRI (which is a bulk Neuroimaging data)***
