@@ -18,7 +18,7 @@ Subsequently, after calculating BAG, we aimed to characterize it in relation to 
 
 Finally, utilizing explainable AI with Shapley values [[6]](##References), by assigning importance to each variable contributing to a prediction, we tried to find the most important exposomes on predicting the BAG.
 
-![Overview of the project](assets/Overview.png)
+![Overview of the project](assets/Main_fig/GitHub7.png)
 
 
 ---
