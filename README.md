@@ -59,7 +59,7 @@ Below are the prerequisites for running the code.
     - [**Pickle**](https://docs.python.org/3/library/pickle.html#data-stream-format): To save trained models  
     - [**SHAP**](https://shap.readthedocs.io/en/latest/index.html): To interpret model predictions
 ---
-## 📚 References
+## References
 1.    [Cole, J.H., *Multimodality neuroimaging brain-age in UK biobank: relationship to biomedical, lifestyle, and cognitive factors.* Neurobiology of aging, 2020. 92: p. 34-42.](https://www.sciencedirect.com/science/article/pii/S0197458020301056)
 2.    [Tian, Y.E., et al., *Heterogeneous aging across multiple organ systems and prediction of chronic disease and mortality.* Nature Medicine, 2023. 29(5): p. 1221-1231.](https://www.nature.com/articles/s41591-023-02296-6)
 3.    [Jónsson, B.A., et al., *Brain age prediction using deep learning uncovers associated sequence variants.* Nature communications, 2019. 10(1): p. 1-10.](https://www.nature.com/articles/s41467-019-13163-9)
