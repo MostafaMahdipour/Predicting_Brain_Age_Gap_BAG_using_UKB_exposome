@@ -19,7 +19,7 @@ In this step, we used:
     - [Overall health rating](https://biobank.ndph.ox.ac.uk/showcase/field.cgi?id=2178)
 
 ## **Structure**
-Using [*CAT 12*](https://academic.oup.com/gigascience/article/doi/10.1093/gigascience/giae049/7727520) [[2]](#references) we have calculated GMVs and stored them in the scratch subdirectory:
+We recommend creating a `scratch` subdirectory to store all initial files there. In our case, using [*CAT 12*](https://academic.oup.com/gigascience/article/doi/10.1093/gigascience/giae049/7727520) [[2]](#references) we have calculated GMVs for cortical and subcortical parcels of the brain and stored them in the `scratch/CATs` sub-directory (The numbers,i.e. `[200,400,...S4]`, show the granularity of each file):
 
 ```
 📁 scratch
@@ -36,21 +36,23 @@ Using [*CAT 12*](https://academic.oup.com/gigascience/article/doi/10.1093/gigasc
 └── 📁 CATs_NoAge/(empty)
 
 ```
-In the `CATs` directory, we have stored the results of [*CAT 12*](https://academic.oup.com/gigascience/article/doi/10.1093/gigascience/giae049/7727520) [[2]](#references) based on their granularities and atlas. After merging the cortical and subcortical atlases we save them in the `CATs_NoAge` directory.
+After merging the cortical and subcortical atlases we save them in the `CATs_NoAge` directory.
+
+We also recommend creating `Data` and `Results` subdirectories; therefore, the data for processing and the results can be stored there.  
 
 
 
 ## Codes
 1. `1_0_DataFiltering.py`
       - merging cortical and subcortical atlases
-      - filtering participants into `Healthy` and `Rest of Population` based on [Cole](https://www.sciencedirect.com/science/article/pii/S0197458020301056) [[5]](#references) criteria using aforesaid non-IDPs.
+      - filtering participants into `Healthy` and `Rest of Population` based on [Cole](https://www.sciencedirect.com/science/article/pii/S0197458020301056) [[5]](#references) criteria using aforesaid non-IDPs
       - saving the final data 
 2. `1_1_BrainAgePrediction.py`
-      - Training the models for predicting the age of the brain using the `Healthy` subset.
-3. `1_2_visualisation.py`
+      - Training the models for predicting the age of the brain using the `Healthy` subset
       - Predicting the Age of the brain on the `Rest of Population` subset
       - calculating the Brain Age GAP and correcting it for the bias
-      - plotting and saving the performances
+3. `1_2_visualisation.py`
+      - plotting and saving the predictions
 
 
 ---
