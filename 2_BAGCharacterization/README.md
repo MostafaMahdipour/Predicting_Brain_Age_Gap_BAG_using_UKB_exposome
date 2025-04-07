@@ -1,4 +1,3 @@
----
 # **Brain Age Gap (BAG) Characterisation**
 In this directory, we have codes for doing Brain Age Gap Characterisation (Prediction). Here, we have one *.py file for main *.py code for brain age prediction, and one visualization code file.
 
