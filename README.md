@@ -10,7 +10,7 @@ Therefore, we aim to i) predict the age of the brain ii) calculate the BAG, and 
 
 ## 🔄 Workflow
 
-In this project, we aimed first to predict brain age using T1-weighted MRI scans. We leveraged the richness of a well-known large cohort of (cognitively) healthy participants in the [UK Biobank](https://www.ukbiobank.ac.uk/) to develop machine learning (ML) models that predict brain age from structural MRI data (known as imaging variables) on a super healthy group and then tested these models on the rest of the UK Biobank population.
+In this project, we aimed first to predict brain age using T1-weighted MRI scans. We leveraged the richness of a well-known large cohort of (cognitively) healthy participants in the [UK Biobank](https://www.ukbiobank.ac.uk/) (under [UK Biobank Application ID: 41655](https://www.ukbiobank.ac.uk/enable-your-research/approved-research/characterizing-brain-networks-and-their-inter-individual-variability-by-high-throughput-imaging-and-computational-modelling)) to develop machine learning (ML) models that predict brain age from structural MRI data (known as imaging variables) on a super healthy group and then tested these models on the rest of the UK Biobank population.
 
 Next, we calculated the gap between predicted brain age and chronological age — known as the **Brain Age Gap (BAG)**. BAG is thought to serve as an important biomarker reflecting pathological processes in the brain.
 
