@@ -1,10 +1,9 @@
+---
 # **Brain Age Gap (BAG) Characterisation**
-In this directory, we have codes for doing Brain Age Gap Characterisation (Prediction). Here, we have one *.py file for main *.py code for brain age prediction, and one visualization code file.
-
-
 This directory contains the code used for Brain Age Gap (BAG) characterization (i.e., prediction of BAG based on exposomes). It includes:
 - One `*.py` script for BAG characterization (prediction)
 - One `*.py` script for visualization
+- one `*ipynb` to claculate SHAP values and related figures
 
 
 
@@ -48,9 +47,27 @@ To select non-imaging variables from the UK Biobank, we followed this multi-step
 ![Overview of Subgroups](../assets/2_BAGCharacterization/BAG_GitHub2.png)
 
 ## Structure
+Like previous step, we recommend creating `Data`, `Results` and `scratch` subdirecotris.
+Three subgroups can be stored into `Data` subdirecotry along with a list of categorical exposomes. As in this step we want to use the exposomes as feature inputs and som eof them are categorical and some continues.
+
+```
+📁 Data
+└── 📁 2_BAG_Characterization
+    ├── subgroup1.csv
+    ├── subgroup2.csv
+    ├── subgroup3.csv
+    └── listofcols2Cat.npy
+```
+
 
 ## Codes
-
+In this directory there are again three files as foloow:
+1. `2_1_BAG_Characterization.py`
+- to Predict the BAG using exposomes as feature input.
+2. `2_2_BAG_Visualisation.py`
+- to plot the scatter plot of target BAG and Predicted BAG of test sest for each outer fold.
+3. `2_3_BAG_to_SHAP.ipynb`
+- to calculate the SHAP value and explainer and realted plots such as Summary bar plot and Beeswarm plot.
 ---
 ## References
 1. [Dunås, T., et al., *Multimodal image analysis of apparent brain age identifies physical fitness as predictor of brain maintenance.* Cerebral Cortex, 2021.](https://academic.oup.com/cercor/article/31/7/3393/6159016)
