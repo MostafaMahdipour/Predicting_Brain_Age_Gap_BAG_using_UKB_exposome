@@ -1,23 +1,23 @@
 # **Brain Age Gap (BAG) Characterisation**
-This directory contains the code used for Brain Age Gap (BAG) characterization (i.e., prediction of BAG based on exposomes). It includes:
+This directory contains the code used for Brain Age Gap (BAG) characterization (i.e., prediction of BAG based on exposome). It includes:
 - One `*.py` script for BAG characterization (prediction)
 - One `*.py` script for visualization
-- one `*ipynb` to claculate SHAP values and related figures
+- one `*ipynb` to calculate SHAP values and related figures
 
 
 
 
 ## Data
-After computing the Brain Age Gap (BAG) following brain age prediction, we aimed to characterize BAG using a wide range of non-imaging variables — often referred to as **exposomes**.
-### Back ground
-For the characterization of BAG, we assessed a wide range of non-imaging variables (known as exposomes) encompassing biomedical, lifestyle, socio-economical, early life factors , etc. Previous research has demonstrated a bivariate association between these factors and BAG (or predicted brain age) [[1-5]](#references); Miller et al. at [[6]](#references), showed associations between neuroimaging and non-imaging phenotypes. Additionally, Cole [[4]](#references), Hofmann et al. [[7]](#references), Vidal-Pineiro et al. [[8]](#references), and other related studies, showed non-imaging phenotypes have associations with the predicted predicted brain age and consequently BAG.
+After computing the Brain Age Gap (BAG) following brain age prediction, we aimed to characterize BAG using a wide range of non-imaging variables — often referred to as **exposome**.
+### Background
+For the characterization of BAG, we assessed a wide range of non-imaging variables (known as exposome) encompassing biomedical, lifestyle, socio-economical, early life factors, etc. Previous research has demonstrated a bivariate association between these factors and BAG (or predicted brain age) [[1-5]](#references); Miller et al. at [[6]](#references), showed associations between neuroimaging and non-imaging phenotypes. Additionally, Cole [[4]](#references), Hofmann et al. [[7]](#references), Vidal-Pineiro et al. [[8]](#references), and other related studies, showed non-imaging phenotypes have associations with the predicted brain age and consequently BAG.
 
 ### Exposome Selection Process
 
 To select non-imaging variables from the UK Biobank, we followed this multi-step process:
 
 1. **Literature Review:**  
-   We reviewed prior studies to compile a broad list of exposomes previously linked to brain health and BAG.
+   We reviewed prior studies to compile a broad list of exposome previously linked to brain health and BAG.
 
 2. **UK Biobank Variable Matching:**  
    We searched the [UK Biobank Showcase](https://biobank.ndph.ox.ac.uk/showcase/) to identify matching or similar data fields corresponding to the variables found in the literature.
@@ -29,25 +29,25 @@ To select non-imaging variables from the UK Biobank, we followed this multi-step
    Since UK Biobank often includes multiple **instances** (time points or assessments) per variable, we selected the most appropriate instance for each variable based on relevance and completeness.
 
 5. **Missing Data Assessment:**  
-   We aimed to minimize missing data. However, due to the nature of population-scale datasets, complete data for all individuals was not feasible. As a result, we made a trade-off between the number of exposomes and the size of the available sample.
+   We aimed to minimize missing data. However, due to the nature of population-scale datasets, complete data for all individuals was not feasible. As a result, we made a trade-off between the number of exposome and the size of the available sample.
 
 6. **Final Subsets Creation:**  
    After data-cleaning and validation (checking for duplicates, value consistency, and interpretability), we defined **three final exposome subsets**:
 
    - `subgroup1.csv` → known as *Variables-Restricted* in the paper.  
-     (fewer exposomes, larger sample size)
+     (fewer exposome, larger sample size)
 
    - `subgroup2.csv` → known as *Replication Subset* in the paper.  
      (intermediate size and variable count)
 
    - `subgroup3.csv` → known as *Main Subset* in the paper.  
-     (richer exposomes, but smaller sample size due to missingness)
+     (richer exposome, but smaller sample size due to missingness)
 
 ![Overview of Subgroups](../assets/2_BAGCharacterization/BAG_GitHub2.png)
 
 ## Structure
-Like previous step, we recommend creating `Data`, `Results` and `scratch` subdirecotris.
-Three subgroups can be stored into `Data` subdirecotry along with a list of categorical exposomes. As in this step we want to use the exposomes as feature inputs and som eof them are categorical and some continues.
+Like the previous step, we recommend creating `Data`, `Results`, and `scratch` subdirectories.
+Three subgroups can be stored in the `Data` subdirectory along with a list of categorical exposomes. As in this step, we want to use the exposomes as feature inputs and some of them are categorical and some continuous.
 
 ```
 📁 Data
@@ -60,13 +60,13 @@ Three subgroups can be stored into `Data` subdirecotry along with a list of cate
 
 
 ## Codes
-In this directory there are again three files as foloow:
+In this directory, there are again three files as follows:
 1. `2_1_BAG_Characterization.py`
-- to Predict the BAG using exposomes as feature input.
+- to Predict the BAG using exposome as feature input.
 2. `2_2_BAG_Visualisation.py`
-- to plot the scatter plot of target BAG and Predicted BAG of test sest for each outer fold.
+- to plot the scatter plot of target BAG and Predicted BAG of the test set for each outer fold.
 3. `2_3_BAG_to_SHAP.ipynb`
-- to calculate the SHAP value and explainer and realted plots such as Summary bar plot and Beeswarm plot.
+- to calculate the SHAP value and explainer and related plots such as Summary bar plot and Beeswarm plot.
 ---
 ## References
 1. [Dunås, T., et al., *Multimodal image analysis of apparent brain age identifies physical fitness as predictor of brain maintenance.* Cerebral Cortex, 2021.](https://academic.oup.com/cercor/article/31/7/3393/6159016)
