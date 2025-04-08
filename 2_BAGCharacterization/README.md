@@ -1,4 +1,3 @@
----
 # **Brain Age Gap (BAG) Characterisation**
 This directory contains the code used for Brain Age Gap (BAG) characterization (i.e., prediction of BAG based on exposomes). It includes:
 - One `*.py` script for BAG characterization (prediction)
