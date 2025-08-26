@@ -52,8 +52,9 @@ Below are the prerequisites for running the code.
 
 - We strongly recommend using **virtual environments** and installing the required packages in an isolated environment. This helps keep the setup clean.  
     - For example, [conda environments](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) are very useful.
-- Here is the `yml` file with which the same environment can be created:
-    - The required conda environment is specified in [`environment_BrainAgeGap.yml`](assets/environment_BrainAgeGap.yml).
+
+
+- The required conda environment is specified in [`environment_BrainAgeGap.yml`](assets/environment_BrainAgeGap.yml).
     - You can create it by running:  
   ```bash
   conda env create -f environment_BrainAgeGap.yml
