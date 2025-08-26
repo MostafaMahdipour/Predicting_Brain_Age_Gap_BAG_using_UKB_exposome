@@ -58,7 +58,7 @@ Below are the prerequisites for running the code.
   ```bash
       conda env create -f environment_BrainAgeGap.yml
   ```
-  -To activate the environment:
+  - To activate the environment:
   
   ```bash
       conda activate BAG_optuna_SHAP
