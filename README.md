@@ -55,9 +55,13 @@ Below are the prerequisites for running the code.
 
 - The required conda environment is specified in [environment_BrainAgeGap.yml](assets/environment_BrainAgeGap.yml).
     - You can create it by running:  
-  ```bash
-  conda env create -f environment_BrainAgeGap.yml
-  ```
+      ```bash
+      conda env create -f environment_BrainAgeGap.yml
+      ```
+  -To activate the environment:
+      ```bash
+      conda activate BAG_optuna_SHAP
+      ```
 - Required packages:
     - [**Scikit-learn**](https://scikit-learn.org/stable/): To train ML models  
     - [**Julearn**](https://juaml.github.io/julearn/main/index.html): To run complex cross-validation designs on top of scikit-learn more easily  
