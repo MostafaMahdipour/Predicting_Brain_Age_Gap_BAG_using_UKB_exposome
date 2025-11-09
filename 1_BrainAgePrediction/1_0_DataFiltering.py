@@ -58,6 +58,8 @@ If you want to download the newest version of UK Biobank accessible data-field f
      cd ukb_bids
      datalad get ukb670018.tsv
 
+The second approach is to use the below commands in this script to download 
+the file directly and save it in your current working directory.
 """
 My_current_path=os.path.abspath(os.getcwd())
 DataLad_UKBB=My_current_path+'/path/to/your/datalad/ukb_bids'
@@ -88,11 +90,34 @@ sys.stdout.write(RESET)
 #give data the access
 os.chmod(Datalad_Path+'/ukb670018.tsv',0o776)
 
-ukbsamp=pd.read_csv(Datalad_Path+'/ukb670018.tsv', sep='\t')
+ukbsamp=pd.read_csv(Datalad_Path+'/ukb670018.tsv', sep='\t') # as this file is 
+# very large, it may take some time to load. you might neet to use chunksize option to load it in partss if you face memory issue.
+# alternative option: 
+"""
+list_of_FIDs_to_load=[] # list of Field IDs you want to load, for example: [21003,31,41202,...]
 
+# Generate a list of columns to keep based on IDs  
+columns_to_keep = ['eid'] + [col for col in list_of_FIDs_to_load if any(col.startswith(f"{id}-") for id in ids_to_load)]  
+
+# Use a chunk iterator to read the CSV in chunks and filter each chunk  
+chunk_size = 10000  # Adjust chunk size based on your memory capacity  
+df_filtered = pd.DataFrame()  # Initialize an empty DataFrame to store the results  
+
+for chunk in pd.read_csv(DATA_UKBB_DemoFile, sep='\t', usecols=columns_to_keep, chunksize=chunk_size):  
+
+    # Concatenate the filtered chunk to the result  
+    df_filtered = pd.concat([df_filtered, chunk], ignore_index=True)  
+
+# Now df_filtered contains only the data for the specified IDs, their suffixes, and the specified participants  
+print(df_filtered.shape)
+ukbsamp = df_filtered.copy()
+"""
+
+#
 sys.stdout.write(CYAN)
 print("\n The UK Biobank Demographic/Phenotypic data has been successfully loaded")
 sys.stdout.write(RESET)
+
 #%% loading CAT files
 # laoding Scheafer and Tian Atlases and concatinating them into one dataframe
 
@@ -149,6 +174,7 @@ del(Scheafer_Tian)
 sys.stdout.write(CYAN)
 print("\n The UK Biobank cortical and sub-cortical data has been successfully loaded and concatinated")
 sys.stdout.write(RESET)
+
 #%% adding age and Sex to this list
 sys.stdout.write(CYAN)
 print("\n Starting to add age and Sex to the CAT files")
