@@ -119,11 +119,25 @@ Healthy_Data=pd.read_csv(natsort.natsorted(list_of_input_files_healthy)[4],index
 All_Data=pd.read_csv(natsort.natsorted(list_of_input_files_all)[4],index_col=0).reset_index(drop=True)
 PoP_Data=All_Data[~All_Data.SubjectID.isin(Healthy_Data.SubjectID)] # Population = All - healthy
 
+# if you want to use another granularity, just change the index [4] to [0], [1], [2], or [3] for 200, 400, 600, or 800 respectively.
 #%% 6 parentheses
+# removing parentheses from column names to avoid issues in julearn
+# Healthy Data
+Healthy_Data.columns = Healthy_Data.columns.str.replace(')', '')
+Healthy_Data.columns = Healthy_Data.columns.str.replace('(', '')
+Healthy_Data.columns = Healthy_Data.columns.str.replace(',', '')
+Healthy_Data.columns = Healthy_Data.columns.str.replace('/', '')
+# All Data
 All_Data.columns = All_Data.columns.str.replace(')', '')
 All_Data.columns = All_Data.columns.str.replace('(', '')
 All_Data.columns = All_Data.columns.str.replace(',', '')
 All_Data.columns = All_Data.columns.str.replace('/', '')
+# PoP Data
+PoP_Data.columns = PoP_Data.columns.str.replace(')', '')
+PoP_Data.columns = PoP_Data.columns.str.replace('(', '')
+PoP_Data.columns = PoP_Data.columns.str.replace(',', '')
+PoP_Data.columns = PoP_Data.columns.str.replace('/', '')
+
 #%% 7 Features and data types
 Data2Model= Healthy_Data.drop(columns=[ 'NCR',
                                     'ICR',
@@ -182,19 +196,19 @@ search_params = {
 }
 #%% 10 run_cross_validation : 
 scores, model, inspector = run_cross_validation(
-    X=X_list,
-    y=y,
-    data=train_df,
-    X_types=X_types,
-    model=creator,
-    return_train_score=True,
-    return_estimator="all",
-    return_inspector=True,
-    seed=rand_seed, 
-    cv=cv_splitter, 
-    scoring=scoring, 
-    search_params=search_params,
-    n_jobs=4
+    X=X_list, # features
+    y=y, # target
+    data=train_df, # data
+    X_types=X_types, # data types (here all are continuous)
+    model=creator, # pipeline
+    return_train_score=True, # to return train scores
+    return_estimator="all", # to return all the estimators
+    return_inspector=True, # to return inspector object which can be used to analyse the results
+    seed=rand_seed,  # random seed
+    cv=cv_splitter, # cross-validation splitter
+    scoring=scoring, # scoring metrics which here are MAE, MSE, RMSE, R2, Pearson's r
+    search_params=search_params, # hyperparameter search parameters
+    n_jobs=4 # number of parallel jobs
 )
 
 sys.stdout.write(BLUE)
@@ -222,4 +236,17 @@ with open(Path_to_Save_Results+'/inspector.pkl', 'wb') as file:
 with open(Path_to_Save_Results+'/scores.pkl', 'wb') as file:
     pickle.dump(scores, file)
 
+# Save cv_splitter using pickle
+with open(Path_to_Save_Results+'/cv_splitter.pkl', 'wb') as file:
+    pickle.dump(cv_splitter, file)
+
+# Save train_df using pickle
+with open(Path_to_Save_Results+'/train_df.pkl', 'wb') as file:
+    pickle.dump(train_df, file)
+# Save test_df using pickle
+with open(Path_to_Save_Results+'/test_df.pkl', 'wb') as file:
+    pickle.dump(test_df, file)
+# save train_df and test_df as csv
+train_df.to_csv(Path_to_Save_Results+'/train_df.csv')
+test_df.to_csv(Path_to_Save_Results+'/test_df.csv')
 # %%
