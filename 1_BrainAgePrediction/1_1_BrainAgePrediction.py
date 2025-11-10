@@ -235,18 +235,43 @@ with open(Path_to_Save_Results+'/inspector.pkl', 'wb') as file:
 # Save scores using pickle
 with open(Path_to_Save_Results+'/scores.pkl', 'wb') as file:
     pickle.dump(scores, file)
+# %% 12 saving other important variables
+if not os.path.exists(Path_to_Save_Results+'/extra_results'):
+    # If it doesn't exist, create it
+    os.makedirs(Path_to_Save_Results+'/extra_results')
+    sys.stdout.write(GREEN)
+    print(f"Directory '{Path_to_Save_Results+'/extra_results'}' created successfully.")
+    sys.stdout.write(RESET)
+else:
+    sys.stdout.write(RED)
+    print(f"Directory '{Path_to_Save_Results+'/extra_results'}' already exists.")
+    sys.stdout.write(RESET)
+
 
 # Save cv_splitter using pickle
-with open(Path_to_Save_Results+'/cv_splitter.pkl', 'wb') as file:
+with open(Path_to_Save_Results+'/extra_results'+'/cv_splitter.pkl', 'wb') as file:
     pickle.dump(cv_splitter, file)
 
 # Save train_df using pickle
-with open(Path_to_Save_Results+'/train_df.pkl', 'wb') as file:
+with open(Path_to_Save_Results+'/extra_results'+'/train_df.pkl', 'wb') as file:
     pickle.dump(train_df, file)
 # Save test_df using pickle
-with open(Path_to_Save_Results+'/test_df.pkl', 'wb') as file:
+with open(Path_to_Save_Results+'/extra_results'+'/test_df.pkl', 'wb') as file:
     pickle.dump(test_df, file)
+
+#save X_list using pickle
+with open(Path_to_Save_Results+'/extra_results'+'/X_list.pkl', 'wb') as file:
+    pickle.dump(X_list, file)
+
+# save search_params using pickle
+with open(Path_to_Save_Results+'/extra_results'+'/search_params.pkl', 'wb') as file:
+    pickle.dump(search_params, file)
+
+# save creator using pickle
+with open(Path_to_Save_Results+'/extra_results'+'/creator.pkl', 'wb') as file:
+    pickle.dump(creator, file)
+
 # save train_df and test_df as csv
-train_df.to_csv(Path_to_Save_Results+'/train_df.csv')
-test_df.to_csv(Path_to_Save_Results+'/test_df.csv')
+train_df.to_csv(Path_to_Save_Results+'/extra_results'+'/train_df.csv')
+test_df.to_csv(Path_to_Save_Results+'/extra_results'+'/test_df.csv')
 # %%
