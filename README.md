@@ -69,6 +69,18 @@ Below are the prerequisites for running the code.
     - [**Optuna**](https://optuna.org/): For hyperparameter tuning using efficient search methods  
     - [**Pickle**](https://docs.python.org/3/library/pickle.html#data-stream-format): To save trained models  
     - [**SHAP**](https://shap.readthedocs.io/en/latest/index.html): To interpret model predictions
+
+
+---
+## 👥 Contributors
+
+| Name | Role |
+|------|------|
+| [Mostafa Mahdipour](https://github.com/MostafaMahdipour) | Data analysis, modeling, code |
+| Prof. Sarah Genon | Supervision, study design |
+| [Dr. Somayeh Maleki Balajoo](https://github.com/SMalekiBalajoo) | Project guidance |
+
+
 ---
 ## References
 1.    [Cole, J.H., *Multimodality neuroimaging brain-age in UK biobank: relationship to biomedical, lifestyle, and cognitive factors.* Neurobiology of aging, 2020. 92: p. 34-42.](https://www.sciencedirect.com/science/article/pii/S0197458020301056)
